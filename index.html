@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skycast - Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Skycast home">
+        <span class="brand-icon" aria-hidden="true">☼</span>
+        <span>skycast</span>
+      </a>
+      <span class="header-label"><span class="header-dot"></span> WEATHER DASHBOARD</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR DAY, AT A GLANCE</p>
+          <h1>Weather made<br>simple.</h1>
+          <p class="hero-description">Check current conditions and a 3-day forecast for any city.</p>
+        </div>
+        <div class="hero-footer"><span>LIVE WEATHER</span><span>•</span><span>POWERED BY OPEN-METEO</span></div>
+      </section>
+
+      <section class="search-panel" aria-labelledby="search-title">
+        <div class="search-copy">
+          <h2 id="search-title">Check the weather</h2>
+          <p>Where would you like to go?</p>
+        </div>
+        <form id="search-form" class="search-form">
+          <label class="visually-hidden" for="city-input">City name</label>
+          <div class="search-controls">
+            <span class="search-symbol" aria-hidden="true">⌕</span>
+            <input id="city-input" name="city" type="text" placeholder="Enter a city (e.g. Beirut)" autocomplete="off" maxlength="80">
+            <button id="search-button" type="submit">Search <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </section>
+
+      <div id="status" class="status status-idle" role="status" aria-live="polite">
+        <span class="status-symbol" aria-hidden="true">☀</span>
+        <span id="status-message">Search for a city to see its weather.</span>
+        <button id="retry-button" class="retry-button" type="button" hidden>Try again</button>
+      </div>
+
+      <section id="weather-results" class="weather-card" aria-labelledby="location-name" hidden>
+        <div class="weather-card-header">
+          <div>
+            <p class="section-label">CURRENT WEATHER</p>
+            <h2 id="location-name">Beirut</h2>
+            <p id="location-detail" class="location-detail">Lebanon</p>
+          </div>
+          <span class="current-badge"><span class="current-dot"></span> NOW</span>
+        </div>
+
+        <div class="current-weather">
+          <div class="current-summary">
+            <div class="condition-line">
+              <span id="weather-icon" class="weather-icon" aria-hidden="true">⛅</span>
+              <span id="weather-description">Partly cloudy</span>
+            </div>
+            <p class="temperature"><span id="current-temperature">25°</span><span class="temperature-unit">C</span></p>
+            <p id="updated-time" class="updated-time">Current conditions</p>
+          </div>
+
+          <div class="metrics-grid">
+            <article class="metric-card">
+              <span class="metric-icon humidity-icon" aria-hidden="true">◌</span>
+              <p>Humidity</p>
+              <strong id="humidity">73%</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-icon wind-icon" aria-hidden="true">〰</span>
+              <p>Wind speed</p>
+              <strong id="wind-speed">8 km/h</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-icon feels-icon" aria-hidden="true">☼</span>
+              <p>Feels like</p>
+              <strong id="feels-like">25°C</strong>
+            </article>
+          </div>
+        </div>
+
+        <section class="forecast-section" aria-labelledby="forecast-title">
+          <div class="forecast-heading">
+            <h3 id="forecast-title">3-day forecast</h3>
+            <span>UP NEXT</span>
+          </div>
+          <div id="forecast-list" class="forecast-list"></div>
+        </section>
+      </section>
+
+      <footer class="site-footer">
+        <span>Made for everyday planning</span>
+        <span>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
